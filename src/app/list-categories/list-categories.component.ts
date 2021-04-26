@@ -7,12 +7,13 @@ import { CategoryService } from '../core/service/category.service';
   styleUrls: ['./list-categories.component.css']
 })
 export class ListCategoriesComponent implements OnInit {
-  public categories:any = [];
+  public categories : any = [];
+  public error : string;
   constructor(private _categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.categories = this._categoryService.getCategories()
-      .subscribe(data => this.categories = data);
+      .subscribe(data => this.categories = data, err => this.error = err );
   }
 
 }

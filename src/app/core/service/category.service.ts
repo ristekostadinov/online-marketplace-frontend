@@ -17,6 +17,10 @@ export class CategoryService {
     return this.http.get<ICategory[]>(this._url).pipe(catchError(this.errorHandler));
   }
 
+  saveCategory(category : ICategory){
+    
+  }
+
   errorHandler(error : HttpErrorResponse){
     return ObservableThrowError(error || "Server Error")
   }
