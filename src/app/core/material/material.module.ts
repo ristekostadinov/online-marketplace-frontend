@@ -5,8 +5,28 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {LayoutModule} from '@angular/cdk/layout';
-  
-const Material = [MatButtonModule, MatToolbarModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule, LayoutModule];
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+
+const Material = [
+   MatButtonModule,
+   MatToolbarModule,
+   MatIconModule,
+   MatListModule,
+   MatSidenavModule,
+   MatToolbarModule,
+   LayoutModule,
+   MatInputModule,
+   MatSelectModule,
+   MatRadioModule,
+   MatCardModule,
+   ReactiveFormsModule,
+   MatTableModule
+];
 
 @NgModule({
   imports: [Material],

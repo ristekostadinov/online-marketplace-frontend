@@ -6,8 +6,10 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/categories']" routerLinkActive="router-link-active" >Categories</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item [routerLink]="['/markets']" routerLinkActive="router-link-active" >Markets</a>
+      <a mat-list-item [routerLink]="['/sales']" routerLinkActive="router-link-active" >Sales</a>
+      <a mat-list-item [routerLink]="['/tags']" routerLinkActive="router-link-active" >Tags</a>
+      <a mat-list-item [routerLink]="['/subscribers']" routerLinkActive="router-link-active" >Subscribers</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,8 +22,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>shopping-recommender</span>
+      <mat-button [routerLink]="['/']" routerLinkActive="router-link-active" >Market Sales Recommender</mat-button>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

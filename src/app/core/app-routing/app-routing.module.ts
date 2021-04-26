@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router'
+import { CreateCategoryComponent } from 'src/app/create-category/create-category.component';
 import { HomePageComponent } from '../../home-page/home-page.component';
 import { ListCategoriesComponent } from '../../list-categories/list-categories.component';
 
@@ -9,6 +10,12 @@ const routes : Routes = [
   },
   {
     path: "categories", component: ListCategoriesComponent
+  },
+  {
+    path: "categories/create", component: CreateCategoryComponent
+  },
+  {
+    path: "categories/:id", component: CreateCategoryComponent
   }
 ];
 
@@ -18,4 +25,4 @@ const routes : Routes = [
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomePageComponent, ListCategoriesComponent]
+export const routingComponents = [HomePageComponent, ListCategoriesComponent, CreateCategoryComponent]
