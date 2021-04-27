@@ -1,7 +1,7 @@
-<form [formGroup]="tagForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="marketForm" novalidate (ngSubmit)="onSubmit()">
     <mat-card class="shipping-card">
       <mat-card-header>
-        <mat-card-title>Tag Form</mat-card-title>
+        <mat-card-title>Market Form</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <div class="row">
@@ -11,6 +11,19 @@
             </mat-form-field>
           </div>
         </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>Favorite food</mat-label>
+                    <mat-select formControlName="place">
+                      <mat-option *ngFor="let place of places" [value]="place.id">
+                        {{place.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+          </div>
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary" type="submit">Submit</button>

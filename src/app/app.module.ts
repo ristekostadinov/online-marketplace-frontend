@@ -8,6 +8,10 @@ import { AppRoutingModule, routingComponents } from './core/app-routing/app-rout
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
 import { CreateTagsComponent } from './create-tags/create-tags.component';
 import { ListTagsComponent } from './list-tags/list-tags.component';
+import { ListItemsComponent } from './list-items/list-items.component';
+import { CreateItemComponent } from './create-item/create-item.component';
+import { ListMarketsComponent } from './list-markets/list-markets.component';
+import { CreateMarketComponent } from './create-market/create-market.component';
 
 
 
@@ -18,6 +22,10 @@ import { ListTagsComponent } from './list-tags/list-tags.component';
     NavbarComponent,
     CreateTagsComponent,
     ListTagsComponent,
+    ListItemsComponent,
+    CreateItemComponent,
+    ListMarketsComponent,
+    CreateMarketComponent,
   ],
   imports: [
     BrowserModule,

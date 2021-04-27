@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router'
 import { CreateCategoryComponent } from 'src/app/create-category/create-category.component';
+import { CreateItemComponent } from 'src/app/create-item/create-item.component';
 import { CreateTagsComponent } from 'src/app/create-tags/create-tags.component';
 import { ListTagsComponent } from 'src/app/list-tags/list-tags.component';
 import { HomePageComponent } from '../../home-page/home-page.component';
 import { ListCategoriesComponent } from '../../list-categories/list-categories.component';
+import { ListItemsComponent } from '../../list-items/list-items.component';
+
 
 const routes : Routes = [
   {
@@ -27,6 +30,15 @@ const routes : Routes = [
   },
   {
     path: "tags/:id", component: CreateTagsComponent
+  },
+  {
+    path: "items", component: ListItemsComponent
+  },
+  {
+    path: "items/create", component: CreateItemComponent
+  },
+  {
+    path: "items/:id", component: CreateItemComponent
   }
 ];
 
@@ -36,4 +48,13 @@ const routes : Routes = [
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomePageComponent, ListCategoriesComponent, CreateCategoryComponent, ListTagsComponent, CreateTagsComponent]
+export const routingComponents = 
+[
+  HomePageComponent, 
+  ListCategoriesComponent, 
+  CreateCategoryComponent, 
+  ListTagsComponent, 
+  CreateTagsComponent,
+  ListItemsComponent,
+  CreateItemComponent
+]

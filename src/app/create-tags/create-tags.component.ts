@@ -40,4 +40,9 @@ export class CreateTagsComponent implements OnInit {
     }
   }
 
+  cancelForm()
+  {
+    this._router.navigate(['tags']);
+  }
+
 }

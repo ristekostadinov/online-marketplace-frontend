@@ -38,4 +38,8 @@ export class CreateCategoryComponent implements OnInit {
       this._categoryService.saveCategory({id: this.id, name: name}).subscribe(it=> this._router.navigate(['categories']));
     }
   }
+
+  cancelForm(){
+    this._router.navigate(['categories'])
+  }
 }

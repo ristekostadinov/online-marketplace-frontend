@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ITag } from '../core/model/tag';
-import { TagService } from './../core/service/tag.service'
+import { TagService } from '../core/service/tag.service'
 
 @Component({
   selector: 'app-list-tags',
