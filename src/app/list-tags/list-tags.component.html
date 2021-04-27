@@ -1,5 +1,6 @@
 <div class="row">
-    <div class="col" style="justify-items: end;">
+    <div class="col" style="text-align-last: center;">
+      <h1>List Tags</h1>
         <button mat-raised-button class="row"
             color="accent"
              [routerLink]="['/tags/create']"
@@ -8,10 +9,10 @@
     </button>
     
     </div>
-    </div>
+</div>
     
     
-    <table mat-table [dataSource]="tags" class="mat-elevation-z8">
+    <table mat-table [dataSource]="tags" class="mat-elevation-z8" style="margin-top: 100px;">
       
         <!-- name Column -->
         <ng-container matColumnDef="name">

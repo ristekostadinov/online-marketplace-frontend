@@ -2,7 +2,9 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+      [opened]="(isHandset$ | async) === false"
+      *ngIf="loggedIn"
+      >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/categories']" routerLinkActive="router-link-active" >Categories</a>
@@ -23,6 +25,10 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <mat-button [routerLink]="['/']" routerLinkActive="router-link-active" >Market Sales Recommender</mat-button>
+      <div class="button-group">
+        <button mat-raised-button color="accent" *ngIf="!loggedIn" (click)="onLogIn()" type="button" >Log In</button>
+        <button mat-raised-button color="warn" *ngIf="loggedIn" (click)="onLogOut()" type="button">Log Out</button>
+      </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

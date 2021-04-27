@@ -3,23 +3,28 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User } from '../model/user';
+import { IUser } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  private currentUserSubject: BehaviorSubject<IUser>;
+  public currentUser: Observable<IUser>;
   readonly url = 'http://localhost:8080';
 
   constructor(private http: HttpClient, private router: Router ) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<IUser>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): User {
+  public get currentUserValue(): IUser {
     return this.currentUserSubject.value;
+  }
+
+  register(username, password){
+    this.http.post<any>(`${this.url}/api/register`, {email: username, password})
+    this.router.navigate(['/login'])
   }
 
   // tslint:disable-next-line:typedef

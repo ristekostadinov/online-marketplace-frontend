@@ -15,3 +15,14 @@
   top: 0;
   z-index: 1;
 }
+
+.button-group{
+  display: flex;
+  position: fixed;
+  right: 3%;
+  flex-wrap: wrap;
+}
+
+.button-group , button{
+  margin-left: 40px;
+}

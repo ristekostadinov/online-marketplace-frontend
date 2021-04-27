@@ -1,5 +1,6 @@
 <div class="row">
-<div class="col" style="justify-items: end;">
+<div class="col" style="text-align: center;">
+    <h1>List Categories</h1>
     <button mat-raised-button class="row"
         color="accent"
          [routerLink]="['/categories/create']"
@@ -11,7 +12,7 @@
 </div>
 
 
-<table mat-table [dataSource]="categories" class="mat-elevation-z8">
+<table mat-table [dataSource]="categories" class="mat-elevation-z8" style="margin-top: 100px;">
   
     <!-- name Column -->
     <ng-container matColumnDef="name">
