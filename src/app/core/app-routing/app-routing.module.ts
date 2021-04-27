@@ -7,29 +7,31 @@ import { ListTagsComponent } from 'src/app/list-tags/list-tags.component';
 import { HomePageComponent } from '../../home-page/home-page.component';
 import { ListCategoriesComponent } from '../../list-categories/list-categories.component';
 import { ListItemsComponent } from '../../list-items/list-items.component';
+import { AuthGuard } from '../guard/auth.guard';
 
+import { LoginComponent } from '../login/login.component';
 
 const routes : Routes = [
   {
     path: "", component: HomePageComponent
   },
   {
-    path: "categories", component: ListCategoriesComponent
+    path: "categories", component: ListCategoriesComponent, canActivate: [AuthGuard]
   },
   {
-    path: "categories/create", component: CreateCategoryComponent
+    path: "categories/create", component: CreateCategoryComponent, canActivate: [AuthGuard]
   },
   {
-    path: "categories/:id", component: CreateCategoryComponent
+    path: "categories/:id", component: CreateCategoryComponent, canActivate: [AuthGuard]
   },
   {
-    path: "tags", component: ListTagsComponent
+    path: "tags", component: ListTagsComponent, canActivate: [AuthGuard]
   },
   {
-    path: "tags/create", component: CreateTagsComponent
+    path: "tags/create", component: CreateTagsComponent, canActivate: [AuthGuard]
   },
   {
-    path: "tags/:id", component: CreateTagsComponent
+    path: "tags/:id", component: CreateTagsComponent, canActivate: [AuthGuard]
   },
   {
     path: "items", component: ListItemsComponent
@@ -39,7 +41,12 @@ const routes : Routes = [
   },
   {
     path: "items/:id", component: CreateItemComponent
+    
+  },
+  {
+    path: "login", component: LoginComponent
   }
+
 ];
 
 @NgModule({
@@ -56,5 +63,7 @@ export const routingComponents =
   ListTagsComponent, 
   CreateTagsComponent,
   ListItemsComponent,
-  CreateItemComponent
+  CreateItemComponent,
+  LoginComponent
 ]
+

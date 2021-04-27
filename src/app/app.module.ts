@@ -1,18 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from './core/guard/auth.guard';
 import { MaterialModule } from './core/material/material.module';
 import { AppRoutingModule, routingComponents } from './core/app-routing/app-routing.module';
+import { AuthenticationService } from './core/service/authentication-service';
+import { JwtInterceptor } from './interceptors/jwt.interceptors';
 import { NavbarComponent } from './shared-components/navbar/navbar.component';
-import { CreateTagsComponent } from './create-tags/create-tags.component';
-import { ListTagsComponent } from './list-tags/list-tags.component';
-import { ListItemsComponent } from './list-items/list-items.component';
-import { CreateItemComponent } from './create-item/create-item.component';
-import { ListMarketsComponent } from './list-markets/list-markets.component';
-import { CreateMarketComponent } from './create-market/create-market.component';
-
 
 
 @NgModule({
@@ -20,12 +16,6 @@ import { CreateMarketComponent } from './create-market/create-market.component';
     AppComponent,
     routingComponents,
     NavbarComponent,
-    CreateTagsComponent,
-    ListTagsComponent,
-    ListItemsComponent,
-    CreateItemComponent,
-    ListMarketsComponent,
-    CreateMarketComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +24,10 @@ import { CreateMarketComponent } from './create-market/create-market.component';
     BrowserAnimationsModule, 
     MaterialModule,
   ],
-  providers: [],
+  providers: [    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    AuthenticationService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
